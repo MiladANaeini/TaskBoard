@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import InputField from './components/InputField';
+import { useState } from 'react';
+import { Task } from './Interface';
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+
+const App: React.FC = () => {
+  const [task, setTask] = useState<string>("")
+  const [allTasks, setAllTasks] = useState<Task[]>([])
+
+  const handleSubmit = (e: React.FormEvent)=>{
+    e.preventDefault();
+    setTimeout(() => {
+      if(task){
+        setAllTasks([...allTasks,{id: Date.now(), task, isDone: false}])
+      };
+      setTask("");
+    }, 1000);
+  }
+
+  console.log("alltasks",allTasks);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div className='App'>
+      <span className='heading'>Task Board</span>
+      <InputField
+      task={task}
+      setTask={setTask}
+      handleSubmit={handleSubmit}
+      />
+    </div>
     </>
   )
-}
+};
 
 export default App
