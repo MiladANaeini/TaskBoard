@@ -1,6 +1,7 @@
 import InputField from './components/InputField';
 import { useState } from 'react';
 import { Task } from './Interface';
+import TaskList from './components/TaskList';
 import './App.css'
 
 
@@ -28,6 +29,10 @@ const App: React.FC = () => {
       task={task}
       setTask={setTask}
       handleSubmit={handleSubmit}
+      />
+      <TaskList
+      allTasks={allTasks}
+      setAllTasks={setAllTasks}
       />
     </div>
     </>
