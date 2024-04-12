@@ -53,7 +53,6 @@
 
 .taskCard__single{
     display: flex;
-    width: 29.5%;
     border-radius: 5px;
     padding: 20px;
     margin-top: 20px;
@@ -84,5 +83,10 @@
     }
     .taskCard__single {
         width: 100%;
+    }
+}
+@media (max-width: 1200px) {
+    .taskCard__single {
+        width: 40%;
     }
 }

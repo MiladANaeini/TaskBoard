@@ -9,11 +9,11 @@ interface Props {
 
 const TaskList:React.FC<Props> = ({allTasks, setAllTasks}) => {
   return (
-    <div className="tasks">
+    <div className="taskCard">
         {allTasks &&
       allTasks.map((item)=>(
-        <div>
-        <TaskCard 
+        <div >
+        <TaskCard
         item={item}
         allTasks={allTasks}
         setAllTasks={setAllTasks}
