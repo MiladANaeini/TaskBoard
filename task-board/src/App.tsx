@@ -19,7 +19,6 @@ const App: React.FC = () => {
     }, 1000);
   }
 
-  console.log("alltasks",allTasks);
 
   return (
     <>
